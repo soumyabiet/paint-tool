@@ -1,0 +1,11 @@
+#Ignore File List
+
+#PHP Files
+/*.php
+
+#Folders
+/js/lib/sceditor/
+/uploads/
+
+#JS Files
+/js/lib/mCustomScrollbar.js-old

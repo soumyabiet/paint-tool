@@ -1,0 +1,376 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url("font-awesome.min.css");
+@import url("jquery.mCustomScrollbar.min.css");
+
+*{
+	padding:0;
+	margin:0;
+	
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	
+	-khtml-user-select:none;
+	-ms-user-select:none;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	user-select:none;
+	-moz-user-select:-moz-none;
+}
+body, html{
+	height:100%;
+}
+body{
+	background-color:#b5b5b5;
+	font-size:14px;
+	line-height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+a{
+	outline:none;
+	text-decoration:none;
+	color:#fff;
+}
+ul, li{
+	list-style-type:none;	
+}
+img{
+	max-width:100%;
+	height:auto;
+}
+.spacer{
+	font-size:0;
+	line-height:0;
+	height:0;
+	clear:both;
+}
+
+.wrapper:before, 
+.wrapper:after{
+	clear:both;
+	content:"";
+	display:table;
+}
+.wrapper{
+	height:100%;
+	position:relative;
+}
+
+.header{
+	background-color:#27303f;
+	height:50px;
+}
+.logo{
+	float:left;
+	margin:13px 0 0 20px;
+}
+.capterName{
+	float:right;
+	width:200px;
+	height:30px;
+	margin:10px 20px 0 0;
+}
+.capterName input[type="text"]{
+	width:100%;
+	height:30px;
+	border:0;
+	padding:5px;
+}
+
+.leftPan{
+	height:100%;
+	width:50px;
+	background-color:#27303f;
+	float:left;
+}
+.rightPan{
+	height:100%;
+	width:50px;
+	background-color:#27303f;
+	float:right;	
+}
+
+.leftPan ul li, 
+.rightPan ul li{
+	color:#fff;
+	width:50px;
+	height:50px;
+	text-align:center;
+	font-size:18px;
+	line-height:50px;
+	cursor:pointer;
+	position:relative;
+}
+.leftPan ul li.color input, 
+.rightPan ul li.color input{
+	width:26px;
+	height:26px;
+	margin:0 auto;
+	border:0;
+	font-size:0;
+	line-height:0;
+	text-align:-5000px;
+	position:relative;
+	top:-7px;
+	cursor:pointer;
+	border:solid 1px #000;
+}
+.leftPan ul li:hover, 
+.rightPan ul li:hover, 
+.leftPan ul li.active, 
+.rightPan ul li.active{
+	background-color:#404e66;
+}
+.leftPan ul li.disable, 
+.rightPan ul li.disable{
+	color:#7f8ea7;
+	cursor:default;
+}
+/*.leftPan ul li:first-child{
+	background-color:#28a9e3;
+}
+.leftPan ul li:nth-child(2){
+	background-color:#28b779;
+}
+.leftPan ul li:nth-child(3){
+	background-color:#ffb849;
+}
+.leftPan ul li:nth-child(4){
+	background-color:#da542f;
+}*/
+
+.leftPan ul li ul, 
+.rightPan ul li ul{
+	position:absolute;
+	top:0;
+	left:50px;
+	width:200px;
+	background-color:#404e66;
+	display:none;
+}
+.rightPan ul li ul{
+	left:-100px;
+	width:100px;
+}
+.leftPan ul li:hover ul, 
+.rightPan ul li:hover ul{
+	display:block;
+}
+.leftPan ul li ul li, 
+.rightPan ul li ul li{
+	float:left;	
+}
+.leftPan ul li ul li:hover, 
+.rightPan ul li ul li:hover{
+	background-color:#27303f;	
+}
+.leftPan ul li ul li.line1 span, 
+.rightPan ul li ul li.line1 span{
+	margin:0 auto;
+	border:solid 1px #fff;
+}
+.leftPan ul li ul li.line2 span, 
+.rightPan ul li ul li.line2 span{
+	margin:0 auto;
+	border:solid 2px #fff;
+}
+.leftPan ul li ul li.line3 span, 
+.rightPan ul li ul li.line3 span{
+	margin:0 auto;
+	border:solid 3px #fff;
+}
+.leftPan ul li ul li.line4 span, 
+.rightPan ul li ul li.line4 span{
+	margin:0 auto;
+	border:solid 4px #fff;
+}
+
+.drawingBoard{
+	/* height:100%; */
+	background-color:#b5b5b5;
+	padding:50px 70px;
+	float:left;
+	width:calc(100% - 100px); 
+}
+.drawingBoard canvas{
+	background-color:#fff;
+	/* width:100%; */
+	/* height:100%; */
+	-webkit-box-shadow: 5px 5px 7px 2px #7c7c7c;
+	box-shadow: 5px 5px 7px 2px #7c7c7c;
+}
+
+.footer{
+	height:50px;
+	background-color:#27303f;
+}
+.playBack:before, 
+.playBack:after{
+	clear:both;
+	content:"";
+	display:table;
+}
+.playBack{
+	background-color:#404e66;
+	width:240px;
+	height:40px;
+	float:right;
+	margin-top:5px;
+}
+.playBack ul li a{
+	color:#fff;
+	width:40px;
+	height:40px;
+	text-align:center;
+	font-size:15px;
+	line-height:40px;
+	cursor:pointer;
+	position:relative;
+	float:left;
+}
+.playBack ul li a:hover{
+	background-color:#2d3c56;	
+}
+.playBack ul li a.record{
+	color:#ed1f24;
+}
+
+.topPan{
+	height:136px;
+	/*width:calc(100% - 100px);*/
+	width:100%;
+	background:rgba(39, 48, 63, 0.8);
+
+	position:absolute;
+	top:-135px;
+	left:0;
+	border-bottom:solid 1px #000;
+}
+.topPan .topScroller{
+	overflow:auto;
+	overflow-y:hidden;	
+	padding:10px 15px 0;
+}
+.topPan ul{
+/*	display:table;*/
+}
+.topPan ul li{
+	float:left;
+	text-align:center;
+	padding:0 10px;
+	color:#fff;
+	font-size:12px;
+	line-height:16px;
+	white-space: nowrap;
+	cursor:pointer;
+	position:relative;
+	padding-top:8px;
+}
+.topPan ul li div{
+	background-color:#fff;
+	margin-bottom:5px;
+	border:solid 1px #000;
+/*	margin:0 10px;*/
+}
+.topPan ul li a.del{
+	background-color:#000;
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	display:block;
+	width:17px;
+	height:17px;
+	
+	font-size:11px;
+	line-height:16px;
+	text-align:center;
+	
+	position:absolute;
+	top:2px;
+	right:3px;
+}
+.topPan ul li img{
+	margin-bottom:10px;
+	margin:0 auto;
+	width:130px;
+	height:90px;
+}
+
+.closeTopPan, 
+.openTopPan{
+	background:rgba(39, 48, 63, 0.8);
+	padding:7px;
+	border-radius:0 0 50% 50%;
+	position:absolute;
+	bottom:-28px;
+	right:52px;
+}
+
+
+.textEditor{
+	border:solid 2px #cecece;
+	width:400px;
+}
+.textEditorHead{
+	background-color:#27303f;
+	padding:5px;
+}
+.textEditorHead:before, 
+.textEditorHead:after{
+	clear:both;
+	content:"";
+	display:table;
+}
+.textEditorHead select{
+	margin-right:10px;
+	height:20px;
+	border:solid 1px #cecece;
+	font-size:11px;
+	min-width:100px;
+	float:left;
+}
+.textEditorHead select option{
+	padding:0 3px;	
+}
+.textEditorHead .editorColor{
+	float:left;
+	width:35px;
+	height:20px;
+}
+.textEditorHead .editorColor input{
+    border:1px solid #000;
+    cursor:pointer;
+    font-size:0;
+    height:20px;
+    line-height:0;
+    width:30px;
+    position: relative;
+    top: -4px;
+}
+.textEditorBody {
+	border-left:solid 2px #27303f;
+	border-right:solid 2px #27303f;
+}
+.textEditorBody textarea{
+	width:100%;
+	height:100px;
+	padding:5px;
+	border:0;
+}
+.textEditorFoot{
+	background-color:#27303f;
+	padding:5px;
+}
+.textEditorFoot button{
+	border:0;
+	display:inline-block;
+	padding:0 10px;
+	font-size:12px;
+	line-height:18px;
+	height:20px;
+	color:#000;
+	background-color:#fff;
+	cursor:pointer;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html 5 Canvas</title>
+    <script data-main="js/app.js" src="js/require.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/media-query.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="js/lib/sceditor/themes/default.min.css" type="text/css" media="all" />
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+    	<!-- Left Panel -->
+    	<div class="leftPan">
+        	<ul id="left-panel">
+            	<li class="fa fa-location-arrow " title="Select"><!--Select--></li>
+                <!-- <li class="fa fa-stop" title="Rectangle"></li> -->
+                <!-- <li class="fa fa-circle" title="Circle"></li> -->
+                <li class="fa fa-pencil active" title="Pen"><!--Pen-->
+                	<ul>
+                    	<li class="line1 line" data-size="4"><span><!-- line 1--></span></li>
+                        <li class="line2 line" data-size="8"><span><!-- line 2--></span></li>
+                        <li class="line3 line" data-size="12"><span><!-- line 3--></span></li>
+                        <li class="line4 line" data-size="16"><span><!-- line 4--></span></li>
+                    </ul>
+                </li>
+                <li class="fa fa-paint-brush" title="Brush">
+                    <ul>
+                        <li class="line1 line" data-size="24"><span><!-- line 1--></span></li>
+                        <li class="line2 line" data-size="30"><span><!-- line 2--></span></li>
+                        <li class="line3 line" data-size="36"><span><!-- line 3--></span></li>
+                        <li class="line4 line" data-size="42"><span><!-- line 4--></span></li>
+                    </ul>
+                </li>
+                <li class="fa fa-eraser" title="Eraser"><!--Eraser-->
+                	<ul>
+                    	<li class="line1 line" data-size="12"><span><!-- line 1--></span></li>
+                        <li class="line2 line" data-size="18"><span><!-- line 2--></span></li>
+                        <li class="line3 line" data-size="24"><span><!-- line 3--></span></li>
+                        <li class="line4 line" data-size="30"><span><!-- line 4--></span></li>
+                    </ul>
+                </li>
+                <li class="fa fa-text-width" title="Text" id="add-text-item"></li>
+                <li class="color" title="Picker"><input class="color {pickerClosable:true}" value="ff0000" id="color-panel"></li>
+            </ul>
+      	</div>
+        <!--/ Left Panel -->
+        
+        <!-- Drawing Board -->
+        <div class="drawingBoard">
+            <canvas id="tutorial" data-paper-resize>
+            <p>Your browser doesn't support canvas.</p>
+            </canvas>
+        </div>
+        <!-- Drawing Board -->
+        
+    	<!-- Right Panel -->
+    	<div class="rightPan">
+        	<ul>
+                <li class="fa fa-file-o" title="New" id="new-canvas"><!--New--></li>
+                <li class="fa fa-save" title="Save" id="save-as-image"><!--Save--></li>
+                <li class="fa fa-undo" title="Undo" id="undo-selection"><!--Undo--></li>
+                <li class="fa fa-repeat" title="Redo" id="redo-selection"><!--Redo--></li>
+                <!-- 
+                <li class="fa fa-search-minus" title="Zoom Minus" id="add-text-item"></li>
+                <li class="fa fa-search-plus" title="Zoom Plus" id="add-text-item"></li>
+                -->
+                <li class="fa fa-video-camera" title="Record"><!--Record-->
+                	<ul>
+                        <li id="start"><a href="#" title="Record" class="record fa fa-circle"></a></li>
+                        <li id="stop"><a href="javascript:void(0);" title="Stop" class="fa fa-stop"></a></li>
+                        <!--<li><a href="#" title="Prev" class="fa fa-backward"></a></li>-->
+                        <!-- <li><a href="javascript:void(0);" title="Play" class="fa fa-play"></a></li> -->
+                        <!--<li><a href="#" title="Next" class="fa fa-forward"></a></li>-->
+                        <!--<li><a href="#" title="Audio" class="fa fa-microphone fa fa-microphone-slash"></a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/ Right Panel --> 
+        
+        <!-- Top Panel -->
+        <div class="topPan" id="user-data-panel">
+        	<div class="topScroller">
+            
+            </div>
+            <a href="#" class="closeTopPan fa fa-remove"><!--Close--></a>
+            <a href="#" class="openTopPan fa fa-arrow-circle-down"><!--Close--></a>
+        </div>
+        <!-- Top Panel -->        
+    </div>
+
+    <div id="light-wt-pop" class="popup">
+        <span class="popup-exit fa fa-remove" id="light-wt-pop-exit"></span>
+        <!--<div class="popup-content" id="light-wt-pop-content"></div>-->
+        <div class="textEditor">
+        	<div class="textEditorHead">
+            	<select name="font-family" id="popup-font-family">
+            	  <option value="">Font Family</option>
+            	  <option value="Arial">Arial</option>
+            	  <option value="Times New Roman">Times New Roman</option>
+            	</select>
+            	<select name="font-size" id="popup-font-size">
+                  <option value="0">Font Size</option>
+            	  <option value="12">12</option>
+            	  <option value="14">14</option>
+            	  <option value="16">16</option>
+            	</select>
+                <div class="editorColor">
+                <input class="color {pickerClosable:true}" value="000000" id="color-panel1">
+                </div>
+            </div>
+            <div class="textEditorBody">
+            	<textarea name="content" id="popup-content" cols="" rows=""></textarea>
+                <input type="hidden" name="xaxis" id="x-axis-point">
+                <input type="hidden" name="yaxis" id="y-axis-point">
+            </div>
+            <div class="textEditorFoot">
+            	<button id="light-wt-pop-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="light-wt-video-pop" class="popup video-on">
+        <span class="popup-exit fa fa-remove" id="light-wt-video-pop-exit"></span>
+        <!--<div class="popup-content" id="light-wt-pop-content"></div>-->
+        <div id="recording-video-content"></div>
+    </div>
+
+    <div class="popup-overlay"></div>
+
+    <script src="//www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="//www.webrtc-experiment.com/screenshot.js"></script>
+    <script>
+        var elementToShare = document.getElementById('tutorial');
+        var recorder = RecordRTC(elementToShare, {
+            type: 'canvas'
+        });
+    </script>
+
+</body>
+</html>
