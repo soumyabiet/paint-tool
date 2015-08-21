@@ -1,2 +1,2 @@
-# paint_tool
-Paint Tools using Canvas and Paper JS
+# Paint Tool
+Paint Tools using Canvas and Paper JS. Use collabotation functionalities using Socket IO.
